@@ -3,6 +3,7 @@ package demo1;
 import java.util.Scanner;
 
 class Processor extends Thread {
+	// tutorial 2: basic Thread synchronization
 	
 	/* purpose of the volatile keyword:
 	 * on some systems, in order to optimize performance, the OS or JVM assumes that the local data in this

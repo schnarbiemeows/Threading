@@ -21,6 +21,7 @@ class Runner extends Thread {
 public class App {
 
 	public static void main(String[] args) {
+		// tutorial 1: starting threads
 		Runner runner1 = new Runner();
 		runner1.start();
 		

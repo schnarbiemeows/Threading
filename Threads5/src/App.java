@@ -22,7 +22,7 @@ class Processor implements Runnable {
 public class App {
 
 	public static void main(String[] args) {
-		
+		// tutorial 5: thread pools
 		ExecutorService executor = Executors.newFixedThreadPool(2);
 		
 		for(int i=0; i<5; i++) {

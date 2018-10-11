@@ -20,6 +20,7 @@ class Runner implements Runnable {
 public class App {
 
 	public static void main(String[] args) {
+		// tutorial 1: starting threads
 		Thread t1 = new Thread(new Runner());
 		Thread t2 = new Thread(new Runner());
 		t1.start();
