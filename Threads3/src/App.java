@@ -4,28 +4,29 @@ public class App {
 	private int count = 0;
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		App app = new App();
 		app.doWork();
 	}
 
+	// the synchronized keyword acts as a mutex lock for the method, it also makes the count variable 
+	// volatile(current state is accessible to all threads
+	public synchronized void increment() {
+		count++;
+	}
 	
 	private void doWork() {
-		// TODO Auto-generated method stub
 		Thread t1 = new Thread(new Runnable() {
 			public void run() {
-				
 				for(int i=0; i<10000; i++) {
-					count++;
+					increment();
 				}
 			}
 		});
 		
 		Thread t2 = new Thread(new Runnable() {
 			public void run() {
-				
 				for(int i=0; i<10000; i++) {
-					count++;
+					increment();
 				}
 			}
 		});
@@ -37,7 +38,6 @@ public class App {
 			t1.join();
 			t2.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
