@@ -12,7 +12,7 @@ public class App {
 	// the synchronized keyword acts as a mutex lock for the method, it also makes the count variable 
 	// volatile(current state is accessible to all threads)
 	public synchronized void increment() {
-		count++; // synchronized is needed because this line here is NOT an atomic transaction!
+		count++; // synchronized is needed because this line here is NOT an atomic transaction! 
 	}
 	
 	private void doWork() {
