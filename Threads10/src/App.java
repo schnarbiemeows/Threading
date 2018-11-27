@@ -3,7 +3,7 @@ public class App {
 
 	public static void main(String[] args) throws InterruptedException {
 		// tutorial 10: re-entrant lock
-		final Runner runner = new Runner();
+		final Runner2 runner = new Runner2();
 		
 		Thread t1 = new Thread(new Runnable() {
 			@Override
