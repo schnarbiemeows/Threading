@@ -24,7 +24,9 @@ public class App {
 	public static void main(String[] args) {
 		// tutorial 5: thread pools
 		ExecutorService executor = Executors.newFixedThreadPool(2);
-		
+		// the advantage of using these thread pools is that, since threads have a lot of overhead
+		// associated with them, you canlimit the # of threads running at a given time so as to
+		// not bogg down the system
 		for(int i=0; i<5; i++) {
 			executor.submit(new Processor(i));
 		}
