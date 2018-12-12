@@ -3,7 +3,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Runner {
+public class Runner2 {
 
 	private int count = 0;
 	// this is a lock that can be locked multiple times, and has to be unlocked the same
@@ -18,6 +18,7 @@ public class Runner {
 	public void firstThread() throws InterruptedException {
 		lock.lock();
 		System.out.println("Waiting ....");
+		Thread.sleep(10000);
 		cond.await();	// this statement in essence unlocks the lock 
 		System.out.println("Woken up!");
 		// gotta wrap the unlock inside a finally in case the increment() method
@@ -32,8 +33,9 @@ public class Runner {
 	public void secondThread() throws InterruptedException {
 		
 		Thread.sleep(1000);
-		lock.lock(); 	// this lock happens after the cond.await()
-		
+		System.out.println("Locking ....");
+		lock.lock(); 	// this lock happens after the cond.await(), which won't hppen until
+		// Thread.sleep(10000); finishes
 		System.out.println("Press the return key!");;
 		new Scanner(System.in).nextLine();
 		System.out.println("Got return key!");
@@ -41,6 +43,7 @@ public class Runner {
 		try {
 			increment();
 		} finally {
+			Thread.sleep(10000);
 			lock.unlock();
 		}
 	}

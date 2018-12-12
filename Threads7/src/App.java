@@ -4,7 +4,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class App {
 
-	// these classes are threadsafe
+	// these classes are thread-safe
 	private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
 	public static void main(String[] args) throws InterruptedException {
 		// tutorial 7: blocking Queues, the producer/consumer pattern
