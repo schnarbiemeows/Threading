@@ -33,6 +33,7 @@ public class App {
 		ExecutorService executor = Executors.newFixedThreadPool(3);
 		
 		for(int i=0; i<3; i++) {
+			System.out.println("submitting.");
 			executor.submit(new Processor(latch));
 		}
 		

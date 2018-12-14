@@ -12,7 +12,7 @@ public class Worker {
 	private Object lock1 = new Object();
 	private Object lock2 = new Object();
 	// so we can comment out the 'synchronized' in each method call and surround
-	// each method body with a synchronized block that refers to the objets above!
+	// each method body with a synchronized block that refers to the objects above!
 	private List<Integer> list1 = new ArrayList<Integer>();
 	private List<Integer> list2 = new ArrayList<Integer>();
 	
