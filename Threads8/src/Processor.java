@@ -21,9 +21,9 @@ public class Processor {
 			System.out.println("Waiting for return key ....");
 			scanner.nextLine();
 			System.out.println("Return key pressed.");
-			// notify can only be calle within a synchronized code block
+			// notify can only be called within a synchronized code block
 			notify();
-			// this line shows that control is relenquished not when notify() is called, 
+			// this line shows that control is relinquished not when notify() is called, 
 			// but when the synchronized block is exited!
 			Thread.sleep(5000);
 		}
