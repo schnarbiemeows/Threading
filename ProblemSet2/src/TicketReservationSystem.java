@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class TicketReservationSystem {
 
+	
 	Map<String, Integer> trainInfo = new HashMap<String,Integer>();
 	
 	public Map<String, Integer> getTrainInfo() {
