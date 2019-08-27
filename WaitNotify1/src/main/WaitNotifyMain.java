@@ -11,8 +11,9 @@ import classes.Process2;
 public class WaitNotifyMain {
 
 	/*
-	 * here we have two different process sharing the same Pojo, and the Pojo contains
-	 * the wait/notify methods, but the synchronization blocks are in the client Processes
+	 * here we have two different process sharing the same Pojo, and the Pojo
+	 * contains the wait/notify methods, but the synchronization blocks are in the
+	 * client Processes
 	 */
 	/**
 	 * @param args
@@ -32,7 +33,7 @@ public class WaitNotifyMain {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(pojo.getField1());
 	}
 

@@ -28,7 +28,7 @@ public class Pojo {
 			newString = field1.getField1() + "wa!";
 			field1.setField1(newString);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

@@ -1,19 +1,18 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
+/**
+ * @author dylan
+ *
+ */
 public class Main {
 
-	/*
-	 * A Map contains Train number and no of seats available. Demonstrate
+	/**
+	 * * A Map contains Train number and no of seats available. Demonstrate
 	 * concurrency problem during reserveTickets(n) operation and provide solution.
-	 */
-	/*
 	 * Map<String, Integer> trainInfo = new HashMap<String,Integer>();
 	 * trainInfo.put("a",100); trainInfo.put("b",100); .... class
 	 * TicketReservationSystem { public void reserveTicket(String trainName, int
 	 * ticketCount) { // show problem and define a solution }
+	 * 
+	 * @param args
 	 */
 	public static void main(String[] args) {
 
@@ -33,7 +32,7 @@ public class Main {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("Available tickets for train - " + trainName + " are "
 				+ reservationSystem.getAvailableTickets(trainName));
 	}

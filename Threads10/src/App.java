@@ -1,40 +1,49 @@
 
+/**
+ * @author dylan
+ *
+ */
 public class App {
 
+	/**
+	 * tutorial 10: re-entrant lock
+	 * 
+	 * @param args
+	 * @throws InterruptedException
+	 */
 	public static void main(String[] args) throws InterruptedException {
-		// tutorial 10: re-entrant lock
 		final Runner2 runner = new Runner2();
-		
+
 		Thread t1 = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
 					runner.firstThread();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 		Thread t2 = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
 					runner.secondThread();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 		t1.start();
 		t2.start();
-		
+
 		t1.join();
 		t2.join();
-		
+
 		runner.finished();
 	}
 

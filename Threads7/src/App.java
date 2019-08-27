@@ -2,57 +2,75 @@ import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * @author dylan
+ *
+ */
 public class App {
 
 	// these classes are thread-safe
 	private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
+
+	/**
+	 * tutorial 7: blocking Queues, the producer/consumer pattern
+	 * 
+	 * @param args
+	 * @throws InterruptedException
+	 */
 	public static void main(String[] args) throws InterruptedException {
-		// tutorial 7: blocking Queues, the producer/consumer pattern
 		Thread t1 = new Thread(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					producer();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 		Thread t2 = new Thread(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					consumer();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 		t1.start();
 		t2.start();
-		
+
 		t1.join();
 		t2.join();
 	}
 
+	/**
+	 * @throws InterruptedException
+	 */
 	private static void producer() throws InterruptedException {
 		Random random = new Random();
-		while(true) {
+		while (true) {
 			queue.put(random.nextInt(100));
 		}
 	}
-	
+
+	/**
+	 * @throws InterruptedException
+	 */
 	private static void consumer() throws InterruptedException {
 		Random random = new Random();
-		while(true) {
+		while (true) {
 			Thread.sleep(100);
-			if(random.nextInt(10) == 0) {
+			if (random.nextInt(10) == 0) {
 				Integer value = queue.take();
 				System.out.println("Taken value: " + value + "; Queue size is: " + queue.size());
 			}
-			
+
 		}
 	}
 }

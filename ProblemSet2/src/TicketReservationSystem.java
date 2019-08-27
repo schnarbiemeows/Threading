@@ -1,11 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author dylan
+ *
+ */
 public class TicketReservationSystem {
 
-	
-	Map<String, Integer> trainInfo = new HashMap<String,Integer>();
-	
+	Map<String, Integer> trainInfo = new HashMap<String, Integer>();
+
 	public Map<String, Integer> getTrainInfo() {
 		return trainInfo;
 	}
@@ -14,15 +17,22 @@ public class TicketReservationSystem {
 		this.trainInfo = trainInfo;
 	}
 
+	/**
+	 * 
+	 */
 	public TicketReservationSystem() {
 		super();
-		trainInfo.put("a",100); 
-		trainInfo.put("b",100);
+		trainInfo.put("a", 100);
+		trainInfo.put("b", 100);
 	}
 
+	/**
+	 * @param trainName
+	 * @param ticketCount
+	 */
 	public void reserveTicket(String trainName, int ticketCount) {
 		int ticketsLeft = trainInfo.get(trainName).intValue();
-		if(ticketsLeft<ticketCount) {
+		if (ticketsLeft < ticketCount) {
 			System.out.println("not enough tickets!");
 		} else {
 			System.out.println("buying " + ticketCount + " tickets");
@@ -31,6 +41,10 @@ public class TicketReservationSystem {
 		}
 	}
 
+	/**
+	 * @param trainName
+	 * @return
+	 */
 	public int getAvailableTickets(String trainName) {
 		return trainInfo.get(trainName).intValue();
 	}

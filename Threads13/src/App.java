@@ -6,42 +6,50 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * @author dylan
+ *
+ */
 public class App {
 
+	/**
+	 * Tutorial 13: Callable and Future
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// Tutorial 13: Callable and Future
 		ExecutorService executor = Executors.newCachedThreadPool();
 		Future<Integer> future = executor.submit(new Callable<Integer>() {
 
 			@Override
 			public Integer call() throws Exception {
-				
-					Random random = new Random();
-					int duration = random.nextInt(4000);
-					if(duration > 2000) {
-						throw new IOException("Sleeping for too long");
-					}
-					System.out.println("Starting ...");
-					try {
-						Thread.sleep(duration);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					System.out.println("Finished.");
-					return duration;
+
+				Random random = new Random();
+				int duration = random.nextInt(4000);
+				if (duration > 2000) {
+					throw new IOException("Sleeping for too long");
 				}
-			
+				System.out.println("Starting ...");
+				try {
+					Thread.sleep(duration);
+				} catch (InterruptedException e) {
+
+					e.printStackTrace();
+				}
+				System.out.println("Finished.");
+				return duration;
+			}
+
 		});
 		executor.shutdown();
-		
+
 		try {
 			System.out.println("Result is: " + future.get());
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
+
 			System.out.println(e.getMessage());
 		}
 	}
